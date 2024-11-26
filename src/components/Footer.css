@@ -1,0 +1,41 @@
+.app-footer {
+  background: linear-gradient(to bottom, #ffffff, #f8f9fa);
+  color: #2c3e50;
+  padding: 20px 0;
+  margin-top: 40px;
+  width: 100%;
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 
+              0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.footer-content p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+@media print {
+  .app-footer {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .app-footer {
+    padding: 15px 0;
+  }
+  
+  .footer-content p {
+    font-size: 12px;
+  }
+} 

@@ -1,0 +1,512 @@
+.label-container {
+  padding: 30px;
+  font-family: "Microsoft JhengHei", "微軟正黑體", sans-serif;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #f8f9fa;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  padding: 20px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.controls {
+  margin: 20px 0;
+  padding: 25px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #2c3e50;
+  font-weight: 500;
+}
+
+.input-group input[type="text"] {
+  padding: 10px;
+  border: 2px solid #e2e8f0;
+  border-radius: 6px;
+  width: 100%;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input[type="text"]:focus {
+  border-color: #4299e1;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.input-group input[type="file"] {
+  margin-top: 8px;
+  width: 100%;
+  padding: 8px;
+  background: #f7fafc;
+  border: 2px dashed #cbd5e0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  grid-column: 1 / -1;
+}
+
+button {
+  padding: 12px 30px;
+  background-color: #4299e1;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:hover {
+  background-color: #3182ce;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+.print-content {
+  width: 210mm;
+  margin: 20px auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.labels-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  box-sizing: border-box;
+}
+
+.label-item {
+  padding: 5mm;
+  box-sizing: border-box;
+  border: 1px dashed #e2e8f0;
+}
+
+.label-header {
+  display: flex;
+  align-items: flex-start;
+}
+
+.code {
+  font-size: 14px;
+  min-width: 25px;
+}
+
+.address {
+  font-size: 14px;
+}
+
+.label-body {
+  margin-left: 30px;
+}
+
+.org-info, .status-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name, .id, .type, .status {
+  font-size: 14px;
+}
+
+/* 打印時隱藏虛線邊框 */
+@media print {
+  .label-item {
+    border: none;
+  }
+}
+
+@media print {
+  .print-content {
+    width: 100%;
+    padding: 0;
+    box-shadow: none;
+  }
+  
+  .labels-grid {
+    gap: 0;
+  }
+  
+  .label-item {
+    page-break-inside: avoid;
+    border: none;
+    box-shadow: none;
+  }
+  
+  .header, .controls {
+    display: none;
+  }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+  .label-container {
+    padding: 15px;
+  }
+  
+  .controls {
+    grid-template-columns: 1fr;
+  }
+  
+  .print-content {
+    width: 100%;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+.page-button {
+  padding: 8px 16px;
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #2d3748;
+  transition: all 0.3s ease;
+}
+
+.page-button:hover {
+  background-color: #f7fafc;
+  transform: translateY(-1px);
+}
+
+.page-button.active {
+  background-color: #4299e1;
+  color: white;
+  border-color: #4299e1;
+}
+
+.page-info {
+  text-align: center;
+  color: #718096;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+@media print {
+  .pagination, .page-info {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    gap: 5px;
+  }
+  
+  .page-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+.spacing-controls {
+  grid-column: 1 / -1;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.spacing-controls h3 {
+  margin: 0 0 15px 0;
+  color: #2d3748;
+  font-size: 16px;
+}
+
+.spacing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+}
+
+.spacing-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.spacing-item label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #4a5568;
+}
+
+.spacing-item input {
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  width: 100%;
+  font-size: 14px;
+}
+
+.spacing-item input:focus {
+  border-color: #4299e1;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.1);
+}
+
+.preview-container {
+  position: relative;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.size-indicators {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.width-indicator {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.height-indicator {
+  position: absolute;
+  left: -30px;
+  top: 50%;
+  transform: rotate(-90deg);
+  transform-origin: left center;
+}
+
+.arrow-line {
+  position: relative;
+  background: #666;
+}
+
+.arrow-line.horizontal {
+  height: 2px;
+  width: 100%;
+}
+
+.arrow-line.vertical {
+  width: 2px;
+  height: 100%;
+}
+
+.arrow-line::before,
+.arrow-line::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-top: 2px solid #666;
+}
+
+.arrow-line.horizontal::before {
+  left: 0;
+  transform: rotate(-45deg);
+}
+
+.arrow-line.horizontal::after {
+  right: 0;
+  transform: rotate(45deg);
+}
+
+.size-label {
+  font-size: 12px;
+  color: #666;
+  background: white;
+  padding: 2px 5px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.margin-indicators {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.top-margin {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.left-margin {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: left center;
+}
+
+.margin-label {
+  font-size: 12px;
+  color: #666;
+  background: rgba(255,255,255,0.8);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+
+.label-size-indicator {
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: rotate(-90deg);
+  transform-origin: left center;
+  z-index: 1;
+}
+
+@media print {
+  .size-indicators,
+  .margin-indicators,
+  .label-size-indicator {
+    display: none;
+  }
+}
+
+.spacing-indicators {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.spacing-indicator {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  color: #666;
+}
+
+.indicator-label {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 2px 4px;
+  border-radius: 2px;
+  white-space: nowrap;
+  font-size: 8px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.indicator-line {
+  position: relative;
+  height: 1px;
+  background: #666;
+  width: 100%;
+}
+
+.indicator-line.vertical {
+  width: 1px;
+  height: 100%;
+}
+
+/* 水平間距指示器樣式 */
+.code-gap {
+  top: 10px;
+}
+
+.code-gap .indicator-label {
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.name-gap, .type-gap {
+  right: 10px;
+}
+
+.name-gap .indicator-label,
+.type-gap .indicator-label {
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* 垂直間距指示器樣式 */
+.line-gap {
+  width: 15px;
+  left: -20px;
+}
+
+.line-gap .indicator-label {
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%) rotate(-90deg);
+  transform-origin: right center;
+}
+
+/* 打印時隱藏間距指示器 */
+@media print {
+  .spacing-indicators {
+    display: none;
+  }
+}
+
+.file-hint {
+  display: block;
+  margin-top: 5px;
+  color: #718096;
+  font-size: 12px;
+  font-style: italic;
+}
+
+@media print {
+  .file-hint {
+    display: none;
+  }
+} 
